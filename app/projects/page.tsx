@@ -1,7 +1,6 @@
 import React from "react";
 import SectionHeading from "../components/SectionHeading";
 import ProjectItem from "../components/Projects/ProjectItem";
-import Link from "next/link";
 const ProjectsPage = () => {
   return (
     <div className="flex flex-col gap-y-4 h-screen">

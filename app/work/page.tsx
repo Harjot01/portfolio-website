@@ -1,6 +1,5 @@
 import React from "react";
 import SectionHeading from "../components/SectionHeading";
-import Link from "next/link";
 const WorkPage = () => {
   return (
     <div className="flex flex-col gap-y-4 h-screen">
