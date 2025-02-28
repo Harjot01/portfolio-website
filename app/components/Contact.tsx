@@ -1,36 +1,43 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
+import Link from "next/link";
 
 const Contact = () => {
   return (
     <div className="flex flex-col gap-y-4">
-      <SectionHeading title="Let's connect" />
-      <div className="flex flex-col gap-y-12 items-center">
-        <p className="text-white">
-          If you want to get in touch with me about something or just to say hi,
-          reach out on social media or send me an email.{" "}
-        </p>
-        <div>
-          <span className="text-primary hover:bg-primary hover:text-white transition duration-300 cursor-pointer">
-            Github
-          </span>
-          <span className="text-primary"> · </span>
-          <span className="text-primary hover:bg-primary hover:text-white transition duration-300 cursor-pointer">
-            Linkedin
-          </span>
-          <span className="text-primary"> · </span>
-          <span className="text-primary hover:bg-primary hover:text-white transition duration-300 cursor-pointer">
-            Twitter{" "}
-          </span>
-          <span className="text-primary"> · </span>
-          <span className="text-primary hover:bg-primary hover:text-white transition duration-300 cursor-pointer">
-            Instagram
-          </span>
-          <span className="text-primary"> · </span>
-          <span className="text-primary hover:bg-primary hover:text-white transition duration-300 cursor-pointer">
-            Gmail{" "}
-          </span>
-        </div>
+      <SectionHeading title="Let's Connect" />
+      <div className="mx-auto">
+        <Link
+          href="https://github.com/Harjot01/"
+          target="_blank"
+          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+        >
+          Github
+        </Link>
+        <span className="text-primary"> · </span>
+        <Link
+          href="https://www.linkedin.com/in/harjot01/"
+          target="_blank"
+          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+        >
+          Linkedin
+        </Link>
+        <span className="text-primary"> · </span>
+        <Link
+          href="https://www.instagram.com/harjot_s_r/"
+          target="_blank"
+          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+        >
+          Instagram
+        </Link>
+        <span className="text-primary"> · </span>
+        <Link
+          href="mailto:harjotsingh.5125@gmail.com"
+          target="_blank"
+          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+        >
+          Gmail{" "}
+        </Link>
       </div>
     </div>
   );

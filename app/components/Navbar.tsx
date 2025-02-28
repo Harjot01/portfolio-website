@@ -7,7 +7,7 @@ const Navbar = () => {
         <h1 className="font-bold">
           <Link
             href="/"
-            className="text-primary hover:bg-primary hover:text-white transition duration-300"
+            className="text-primary hover:bg-primary hover:text-white "
           >
             harjotsingh
           </Link>
@@ -17,7 +17,7 @@ const Navbar = () => {
         <h1 className="font-bold">
           <a
             href="/projects"
-            className="text-primary hover:bg-primary hover:text-white transition duration-300"
+            className="text-primary hover:bg-primary hover:text-white "
           >
             projects/
           </a>
@@ -30,12 +30,6 @@ const Navbar = () => {
           href="/projects"
         >
           ./projects
-        </Link>
-        <Link
-          className="hover:text-tertiary transition duration-300 "
-          href="/timeline"
-        >
-          ./timeline
         </Link>
 
         <Link

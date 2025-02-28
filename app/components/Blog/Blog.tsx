@@ -6,7 +6,7 @@ const Blog = () => {
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex justify-between">
-        <SectionHeading title="Recent blogs" />
+        <SectionHeading title="Recent Blogs" />
         <Link
           href="/blog"
           className="text-gray-300 hover:text-tertiary transition duration-300 underline underline-offset-4"
