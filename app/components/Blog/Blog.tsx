@@ -18,8 +18,8 @@ const Blog = () => {
       <div className="flex flex-col gap-y-6">
         {" "}
         <BlogItem
-          title="Finally, a complete portfolio"
-          description="This is the kind of portfolio that I've always wanted to build"
+          title="Basic Linux Commands"
+          description="Linux is the most important skill in 2025..."
         />
       </div>
     </div>

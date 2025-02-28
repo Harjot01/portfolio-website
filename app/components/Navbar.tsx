@@ -5,12 +5,12 @@ const Navbar = () => {
     <nav className="flex md:flex-row gap-y-4 flex-col justify-between py-6 ">
       <div className="flex gap-x-2 items-center ">
         <h1 className="font-bold">
-          <a
+          <Link
             href="/"
             className="text-primary hover:bg-primary hover:text-white transition duration-300"
           >
             harjotsingh
-          </a>
+          </Link>
           <span className="text-tertiary">:~#</span>
         </h1>
 
