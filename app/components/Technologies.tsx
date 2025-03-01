@@ -22,21 +22,20 @@ const Technologies: React.FC<TechnologiesProps> = ({ techData }) => {
     });
 
     return () => clearTimeout(timeout);
-  }, [techData]); // ✅ Fixed missing dependency issue
-
+  }, []);
   return (
     <section
       id="tech"
       className="max-w-contentContainer flex flex-col gap-y-4 mx-auto"
     >
       <SectionHeading title="I Know" />
-      <ul className="flex flex-wrap justify-center gap-4 text-gray-800">
+      <ul className="flex flex-wrap justify-center gap-4 ">
         {techData.map((tech) => (
           <li
             className={`borderBlack rounded-full text-md px-5 py-1 ${
               tech === highlightedSkill
-                ? "bg-primary text-white dark:bg-textDarkGreen duration-700"
-                : "dark:bg-white/10 dark:text-white/80 bg-lightMode"
+                ? "bg-primary text-textLight dark:bg-primary duration-700"
+                : "bg-primary/10 dark:bg-white/10 text-textDark/80 dark:text-white/80"
             }`}
             key={tech}
           >

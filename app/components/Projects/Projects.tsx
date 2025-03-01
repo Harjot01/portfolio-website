@@ -9,7 +9,7 @@ const Projects = () => {
         <SectionHeading title="Featured Projects" />
         <Link
           href="/projects"
-          className="text-gray-300 hover:text-tertiary transition duration-300 underline underline-offset-4"
+          className="text-gray-500 hover:text-textDark dark:text-gray-300 dark:hover:text-textLight transition duration-300 underline underline-offset-4"
         >
           {" "}
           (All)

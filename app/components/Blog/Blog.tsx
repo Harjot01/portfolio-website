@@ -9,7 +9,7 @@ const Blog = () => {
         <SectionHeading title="Recent Blogs" />
         <Link
           href="/blog"
-          className="text-gray-300 hover:text-tertiary transition duration-300 underline underline-offset-4"
+          className="text-gray-500 dark:text-gray-300 hover:text-textDark dark:hover:text-textLight transition duration-300 underline underline-offset-4"
         >
           {" "}
           (All){" "}
@@ -20,6 +20,10 @@ const Blog = () => {
         <BlogItem
           title="Basic Linux Commands"
           description="Linux is the most important skill in 2025..."
+        />
+        <BlogItem
+          title="Finally, a complete portfolio"
+          description="This is the kind of portfolio I've always wanted to build..."
         />
       </div>
     </div>

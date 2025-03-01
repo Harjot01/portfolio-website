@@ -12,6 +12,10 @@ const BlogPage = () => {
           title="Basic Linux Commands"
           description="Linux is the most important skill in 2025..."
         />
+        <BlogItem
+          title="Finally, a complete portfolio"
+          description="This is the kind of portfolio I've always wanted to build..."
+        />
       </div>
     </div>
   );

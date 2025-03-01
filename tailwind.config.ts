@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,7 +13,8 @@ export default {
         background: "#111416",
         primary: "#1093f5",
         secondary: "#55FF55",
-        tertiary: "#ffffff",
+        textLight: "#ffffff",
+        textDark: "#000000",
       },
       keyframes: {
         blink: {

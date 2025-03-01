@@ -10,7 +10,7 @@ const Contact = () => {
         <Link
           href="https://github.com/Harjot01/"
           target="_blank"
-          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+          className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
         >
           Github
         </Link>
@@ -18,7 +18,7 @@ const Contact = () => {
         <Link
           href="https://www.linkedin.com/in/harjot01/"
           target="_blank"
-          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+          className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
         >
           Linkedin
         </Link>
@@ -26,7 +26,7 @@ const Contact = () => {
         <Link
           href="https://www.instagram.com/harjot_s_r/"
           target="_blank"
-          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+          className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
         >
           Instagram
         </Link>
@@ -34,7 +34,7 @@ const Contact = () => {
         <Link
           href="mailto:harjotsingh.5125@gmail.com"
           target="_blank"
-          className="text-primary hover:bg-primary hover:text-tertiary  cursor-pointer"
+          className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
         >
           Gmail{" "}
         </Link>

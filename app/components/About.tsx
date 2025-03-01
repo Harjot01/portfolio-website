@@ -13,7 +13,7 @@ const About = () => {
           height={100}
           className="w-40 h-40 rounded-lg hidden sm:flex"
         />
-        <div className="flex flex-col gap-y-6 text-white justifyc-between">
+        <div className="flex flex-col text-textDark dark:text-textLight justify-between">
           <h1 className="">
             Hi, I am <span className="font-bold">Harjot Singh,</span>
           </h1>
