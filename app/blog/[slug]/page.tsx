@@ -6,7 +6,7 @@ import { urlFor } from "@/lib/sanity";
 import { getSingleBlog } from "@/lib/fetchBlogs";
 import Reveal from "@/app/components/Reveal";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: any) => {
   const blog = await getSingleBlog(params.slug);
   const date = blog?.publishDate ? new Date(blog.publishDate) : null;
 
@@ -17,7 +17,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   });
 
   return (
-    <main className="max-w-4xl mx-auto px-4 sm:px-6  lg:px-8 mt-12 py-12">
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 py-12">
       {/* Article Header */}
       <header className="flex flex-col gap-y-4 mb-8">
         <Reveal delay={0.1}>
@@ -45,14 +45,21 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               alt={blog?.title || "Project Thumbnail Image"}
               width={1200}
               height={800}
-              layout="responsive"
+              style={{ width: "100%", height: "auto" }}
             />
           )}
         </div>
         {/* Article Content */}
         <article className="prose prose-lg text-textDark dark:text-textLight dark:prose-invert max-w-none">
-          <PortableText value={blog?.content} components={RichTextComponents} />
-        </article>
+          {blog?.content ? (
+            <PortableText
+              value={blog.content}
+              components={RichTextComponents}
+            />
+          ) : (
+            <p>No content available</p>
+          )}
+        </article>{" "}
       </Reveal>
     </main>
   );

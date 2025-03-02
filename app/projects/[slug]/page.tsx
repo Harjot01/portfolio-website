@@ -7,7 +7,7 @@ import { RichTextComponents } from "@/app/components/RichTextComponents";
 import { urlFor } from "@/lib/sanity";
 import Reveal from "@/app/components/Reveal";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: any) => {
   const project = await getSingleProject(params.slug);
   const date = project?.publishDate ? new Date(project.publishDate) : null;
 
@@ -75,11 +75,15 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
         {/* Article Content */}
         <article className="prose prose-lg text-textDark dark:text-textLight dark:prose-invert max-w-none">
-          <PortableText
-            value={project?.content}
-            components={RichTextComponents}
-          />
-        </article>
+          {project?.content ? (
+            <PortableText
+              value={project.content}
+              components={RichTextComponents}
+            />
+          ) : (
+            <p>No content available</p>
+          )}
+        </article>{" "}
       </Reveal>
     </main>
   );
