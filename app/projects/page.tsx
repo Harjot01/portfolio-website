@@ -4,6 +4,9 @@ import ProjectItem from "../components/Projects/ProjectItem";
 import { getProjects } from "@/lib/fetchProjects";
 import { ProjectsInterface } from "@/lib/interface";
 import Reveal from "../components/Reveal";
+
+export const revalidate = 30;
+
 const ProjectsPage = async () => {
   const projects: ProjectsInterface[] = await getProjects();
   return (

@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
 import { getSingleProject } from "@/lib/fetchProjects";
@@ -6,6 +7,46 @@ import Image from "next/image";
 import { RichTextComponents } from "@/app/components/RichTextComponents";
 import { urlFor } from "@/lib/sanity";
 import Reveal from "@/app/components/Reveal";
+
+export const revalidate = 30;
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const project = await getSingleProject(params.slug);
+
+  return {
+    title: project?.title || "Project Post",
+    description: project?.metaDesc || "A projec post on my website",
+    openGraph: {
+      title: project?.title || "Project Post",
+      description: project?.metaDesc || "A project post on my website",
+      images: [
+        {
+          url: project?.projectImg
+            ? urlFor(project.projectImg).url()
+            : "/default-image.png",
+          width: 1200,
+          height: 800,
+          alt: project?.title || "Project Thumbnail Image",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project?.title || "Project Post",
+      description: project?.metaDesc || "A project post on my website",
+      images: [
+        {
+          url: project?.projectImg
+            ? urlFor(project.projectImg).url()
+            : "/default-image.png",
+          width: 1200,
+          height: 800,
+          alt: project?.title || "Project Thumbnail Image",
+        },
+      ],
+    },
+  };
+}
 
 const Page = async ({ params }: any) => {
   const project = await getSingleProject(params.slug);

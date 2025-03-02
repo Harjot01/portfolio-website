@@ -1,10 +1,51 @@
 import React from "react";
+import { Metadata } from "next";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { RichTextComponents } from "@/app/components/RichTextComponents";
 import { urlFor } from "@/lib/sanity";
 import { getSingleBlog } from "@/lib/fetchBlogs";
 import Reveal from "@/app/components/Reveal";
+
+export const revalidate = 30;
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const blog = await getSingleBlog(params.slug);
+
+  return {
+    title: blog?.title || "Blog Post",
+    description: blog?.metaDesc || "A blog post on my website",
+    openGraph: {
+      title: blog?.title || "Blog Post",
+      description: blog?.metaDesc || "A blog post on my website",
+      images: [
+        {
+          url: blog?.blogImg
+            ? urlFor(blog.blogImg).url()
+            : "/default-image.png",
+          width: 1200,
+          height: 800,
+          alt: blog?.title || "Blog Thumbnail Image",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog?.title || "Blog Post",
+      description: blog?.metaDesc || "A blog post on my website",
+      images: [
+        {
+          url: blog?.blogImg
+            ? urlFor(blog.blogImg).url()
+            : "/default-image.png",
+          width: 1200,
+          height: 800,
+          alt: blog?.title || "Blog Thumbnail Image",
+        },
+      ],
+    },
+  };
+}
 
 const Page = async ({ params }: any) => {
   const blog = await getSingleBlog(params.slug);

@@ -4,6 +4,9 @@ import BlogItem from "../components/Blog/BlogItem";
 import { BlogsInterface } from "@/lib/interface";
 import { getBlogs } from "@/lib/fetchBlogs";
 import Reveal from "../components/Reveal";
+
+export const revalidate = 30;
+
 const BlogPage = async () => {
   const blogs: BlogsInterface[] = await getBlogs();
   return (
