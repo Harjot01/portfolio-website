@@ -6,7 +6,7 @@ interface SectionHeadingProps {
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({ title }) => {
   return (
-    <h1 className="text-primary text-lg font-bold group w-full ">
+    <h1 className="text-primary text-base font-bold group w-full ">
       {" "}
       <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
         ❯

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 interface TechnologiesProps {
   techData: string[];
@@ -22,27 +23,30 @@ const Technologies: React.FC<TechnologiesProps> = ({ techData }) => {
     });
 
     return () => clearTimeout(timeout);
-  }, []);
+  });
   return (
     <section
       id="tech"
       className="max-w-contentContainer flex flex-col gap-y-4 mx-auto"
     >
-      <SectionHeading title="I Know" />
-      <ul className="flex flex-wrap justify-center gap-4 ">
-        {techData.map((tech) => (
-          <li
-            className={`borderBlack rounded-full text-md px-5 py-1 ${
-              tech === highlightedSkill
-                ? "bg-primary text-textLight dark:bg-primary duration-700"
-                : "bg-primary/10 dark:bg-white/10 text-textDark/80 dark:text-white/80"
-            }`}
-            key={tech}
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
+      <Reveal delay={0.8}>
+        <SectionHeading title="I Know" />
+      </Reveal>
+      <Reveal delay={0.9}>
+        <ul className="flex flex-wrap justify-center gap-4 ">
+          {techData.map((tech) => (
+            <li
+              className={`borderBlack rounded-full text-md px-5 py-1 ${tech === highlightedSkill
+                  ? "bg-primary text-textLight dark:bg-primary duration-700"
+                  : "bg-primary/10 dark:bg-white/10 text-textDark/80 dark:text-white/80"
+                }`}
+              key={tech}
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
+      </Reveal>
     </section>
   );
 };

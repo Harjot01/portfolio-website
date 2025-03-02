@@ -4,10 +4,15 @@ import { FaArrowRight } from "react-icons/fa";
 interface ProjectItemProps {
   title: string;
   description: string;
+  slug: string;
 }
-const ProjectItem: React.FC<ProjectItemProps> = ({ title, description }) => {
+const ProjectItem: React.FC<ProjectItemProps> = ({
+  title,
+  description,
+  slug,
+}) => {
   return (
-    <Link href="">
+    <Link href={`/projects/${slug}`}>
       {" "}
       <div className="flex justify-between items-center rounded-md py-2 px-4 w-full min-h-20 bg-primary/5 dark:bg-white/5 text-textDark dark:text-textLight transition duration-300 hover:opacity-70 border border-1 group">
         <div className="flex flex-col gap-y-2 justify-center">

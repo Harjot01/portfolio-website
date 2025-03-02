@@ -1,22 +1,34 @@
 import React from "react";
 import SectionHeading from "../components/SectionHeading";
 import BlogItem from "../components/Blog/BlogItem";
-const BlogPage = () => {
+import { BlogsInterface } from "@/lib/interface";
+import { getBlogs } from "@/lib/fetchBlogs";
+import Reveal from "../components/Reveal";
+const BlogPage = async () => {
+  const blogs: BlogsInterface[] = await getBlogs();
   return (
-    <div className="flex flex-col gap-y-4 h-screen">
-      <SectionHeading title="All Blogs" />
-
-      <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-4 mt-12 h-screen">
+      <Reveal delay={0.1}>
+        <SectionHeading title="All Blogs" />
+      </Reveal>
+      <Reveal delay={0.2}>
         {" "}
-        <BlogItem
-          title="Basic Linux Commands"
-          description="Linux is the most important skill in 2025..."
-        />
-        <BlogItem
-          title="Finally, a complete portfolio"
-          description="This is the kind of portfolio I've always wanted to build..."
-        />
-      </div>
+        <div className="flex flex-col gap-y-6">
+          {" "}
+          {blogs.map((blog) => {
+            return (
+              <div key={blog._id}>
+                <BlogItem
+                  title={blog?.title}
+                  description={blog?.metaDesc}
+                  slug={blog.slug.current}
+                  publishDate={blog?.publishDate || ""}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </Reveal>
     </div>
   );
 };

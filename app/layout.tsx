@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${firaCode.className} bg-white dark:bg-background antialiased w-full max-w-[70.5rem] mx-auto px-4 text-sm md:text-base flex flex-col gap-y-12`}
+        className={`${geistSans.variable} ${geistMono.variable} ${firaCode.className} bg-white dark:bg-background antialiased w-full max-w-[70.5rem] mx-auto px-4 text-sm md:text-base `}
       >
         <Navbar />
         {children}
