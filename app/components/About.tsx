@@ -2,7 +2,7 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 import Reveal from "./Reveal";
-const About = () => {
+const About = async () => {
   return (
     <div className="flex flex-col mt-12 gap-y-4">
       <Reveal delay={0.1}>

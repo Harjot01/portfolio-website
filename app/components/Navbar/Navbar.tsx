@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumbs from "./Breadcrumbs";
-const Navbar = () => {
+import { getAbout } from "@/lib/fetchAbout";
+import { AboutInterface } from "@/lib/interface";
+
+const Navbar = async () => {
+  const aboutData: AboutInterface = await getAbout();
+  const [_file, id, extension] = aboutData?.resume.asset._ref.split("-");
   return (
     <nav className="flex md:flex-row gap-y-4 flex-col justify-between py-6 ">
       <div className="flex gap-x-1 items-center ">
@@ -38,7 +43,7 @@ const Navbar = () => {
         </Link>
         <Link
           className="hover:text-textDark dark:hover:text-textLight transition duration-300"
-          href="./resume.pdf"
+          href={`https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${id}.${extension}`}
         >
           ./resume.pdf
         </Link>

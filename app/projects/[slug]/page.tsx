@@ -11,37 +11,37 @@ import Reveal from "@/app/components/Reveal";
 export const revalidate = 30;
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const project = await getSingleProject(params.slug);
+  const projectData = await getSingleProject(params.slug);
 
   return {
-    title: project?.title || "Project Post",
-    description: project?.metaDesc || "A projec post on my website",
+    title: projectData?.title || "Project Post",
+    description: projectData?.metaDesc || "A projec post on my website",
     openGraph: {
-      title: project?.title || "Project Post",
-      description: project?.metaDesc || "A project post on my website",
+      title: projectData?.title || "Project Post",
+      description: projectData?.metaDesc || "A project post on my website",
       images: [
         {
-          url: project?.projectImg
-            ? urlFor(project.projectImg).url()
+          url: projectData?.projectImg
+            ? urlFor(projectData.projectImg).url()
             : "/default-image.png",
           width: 1200,
           height: 800,
-          alt: project?.title || "Project Thumbnail Image",
+          alt: projectData?.title || "Project Thumbnail Image",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: project?.title || "Project Post",
-      description: project?.metaDesc || "A project post on my website",
+      title: projectData?.title || "Project Post",
+      description: projectData?.metaDesc || "A project post on my website",
       images: [
         {
-          url: project?.projectImg
-            ? urlFor(project.projectImg).url()
+          url: projectData?.projectImg
+            ? urlFor(projectData.projectImg).url()
             : "/default-image.png",
           width: 1200,
           height: 800,
-          alt: project?.title || "Project Thumbnail Image",
+          alt: projectData?.title || "Project Thumbnail Image",
         },
       ],
     },
@@ -49,8 +49,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 const Page = async ({ params }: any) => {
-  const project = await getSingleProject(params.slug);
-  const date = project?.publishDate ? new Date(project.publishDate) : null;
+  const projectData = await getSingleProject(params.slug);
+  const date = projectData?.publishDate
+    ? new Date(projectData.publishDate)
+    : null;
 
   const formattedDate = date?.toLocaleDateString("en-us", {
     day: "2-digit",
@@ -66,14 +68,14 @@ const Page = async ({ params }: any) => {
           {" "}
           <p className="text-sm text-gray-500 dark:text-gray-300">
             {formattedDate} <span className="mx-2">•</span>{" "}
-            {project?.estimatedRead} read
+            {projectData?.estimatedRead} read
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
           {" "}
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-            {project?.title}
+            {projectData?.title}
           </h1>
         </Reveal>
 
@@ -81,7 +83,7 @@ const Page = async ({ params }: any) => {
           {" "}
           <div className="flex gap-x-2">
             <Link
-              href={project?.liveLink || "#"}
+              href={projectData?.liveLink || "#"}
               target="_blank"
               className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 underline underline-offset-4"
             >
@@ -89,7 +91,7 @@ const Page = async ({ params }: any) => {
             </Link>
             <span className="text-gray-500 dark:text-gray-400">/</span>
             <Link
-              href={project?.githubLink || "#"}
+              href={projectData?.githubLink || "#"}
               target="_blank"
               className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 underline underline-offset-4"
             >
@@ -103,11 +105,11 @@ const Page = async ({ params }: any) => {
       <Reveal delay={0.4}>
         {" "}
         <div className="relative w-full h-auto my-8">
-          {project?.projectImg && (
+          {projectData?.projectImg && (
             <Image
               className="rounded-lg object-cover"
-              src={urlFor(project?.projectImg).url()}
-              alt={project?.title || "Project Thumbnail Image"}
+              src={urlFor(projectData?.projectImg).url()}
+              alt={projectData?.title || "Project Thumbnail Image"}
               width={1200}
               height={800}
               layout="responsive"
@@ -116,9 +118,9 @@ const Page = async ({ params }: any) => {
         </div>
         {/* Article Content */}
         <article className="prose prose-lg text-textDark dark:text-textLight dark:prose-invert max-w-none">
-          {project?.content ? (
+          {projectData?.content ? (
             <PortableText
-              value={project.content}
+              value={projectData.content}
               components={RichTextComponents}
             />
           ) : (

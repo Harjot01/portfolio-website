@@ -1,35 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const getStoredTheme = (): "light" | "dark" => {
-  if (typeof window !== "undefined") {
-    return (localStorage.getItem("theme") as "light" | "dark") || "dark";
-  }
-  return "dark";
-};
-
-const applyThemeToDocument = (theme: "light" | "dark") => {
-  if (typeof window !== "undefined") {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }
-};
-
 const Footer = () => {
-  const [theme, setTheme] = useState<"light" | "dark">(getStoredTheme());
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    applyThemeToDocument(theme);
     setMounted(true);
-    localStorage.setItem("theme", theme);
+    const storedTheme = localStorage.getItem("theme") as "light" | "dark";
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.classList.toggle("dark", storedTheme === "dark");
+    }
   }, [theme]);
 
-  const applyTheme = (selectedTheme: "light" | "dark") => {
+  const toggleTheme = (selectedTheme: "light" | "dark") => {
     setTheme(selectedTheme);
-    applyThemeToDocument(selectedTheme);
+    document.documentElement.classList.toggle("dark", selectedTheme === "dark");
     localStorage.setItem("theme", selectedTheme);
   };
 
+  if (!mounted) return null;
   return (
     <footer className="w-full mt-12 py-6 bg-white dark:bg-background border-t border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -41,7 +31,7 @@ const Footer = () => {
           {mounted && (
             <>
               <button
-                onClick={() => applyTheme("light")}
+                onClick={() => toggleTheme("light")}
                 className="text-textDark dark:text-textLight hover:text-primary transition-colors"
               >
                 <svg
@@ -67,7 +57,7 @@ const Footer = () => {
                 </svg>
               </button>
               <button
-                onClick={() => applyTheme("dark")}
+                onClick={() => toggleTheme("dark")}
                 className="text-textDark dark:text-textLight hover:text-primary transition-colors"
               >
                 <svg

@@ -8,7 +8,7 @@ import Reveal from "../components/Reveal";
 export const revalidate = 30;
 
 const BlogPage = async () => {
-  const blogs: BlogsInterface[] = await getBlogs();
+  const blogsData: BlogsInterface[] = await getBlogs();
   return (
     <div className="flex flex-col gap-y-4 mt-12 h-screen">
       <Reveal delay={0.1}>
@@ -18,7 +18,7 @@ const BlogPage = async () => {
         {" "}
         <div className="flex flex-col gap-y-6">
           {" "}
-          {blogs.map((blog) => {
+          {blogsData.map((blog) => {
             return (
               <div key={blog._id}>
                 <BlogItem

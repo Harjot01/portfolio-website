@@ -6,7 +6,7 @@ import { getProjects } from "@/lib/fetchProjects";
 import { ProjectsInterface } from "@/lib/interface";
 import Reveal from "../Reveal";
 const Projects = async () => {
-  const projects: ProjectsInterface[] = await getProjects();
+  const projectsData: ProjectsInterface[] = await getProjects();
   return (
     <div className="flex flex-col gap-y-4">
       <Reveal delay={0.6}>
@@ -25,15 +25,17 @@ const Projects = async () => {
         {" "}
         <div className="flex flex-col gap-y-6">
           {" "}
-          {projects.map((project) => {
+          {projectsData.map((project) => {
             return (
-              <div key={project._id}>
-                <ProjectItem
-                  title={project.title}
-                  description={project.metaDesc}
-                  slug={project.slug.current}
-                />
-              </div>
+              project.isFeaturedProject && (
+                <div key={project._id}>
+                  <ProjectItem
+                    title={project.title}
+                    description={project.metaDesc}
+                    slug={project.slug.current}
+                  />
+                </div>
+              )
             );
           })}
         </div>

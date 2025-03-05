@@ -6,7 +6,7 @@ import { getBlogs } from "@/lib/fetchBlogs";
 import { BlogsInterface } from "@/lib/interface";
 import Reveal from "../Reveal";
 const Blog = async () => {
-  const blogs: BlogsInterface[] = await getBlogs();
+  const blogsData: BlogsInterface[] = await getBlogs();
   return (
     <div className="flex flex-col gap-y-4">
       <Reveal delay={0.9}>
@@ -24,16 +24,18 @@ const Blog = async () => {
       <Reveal delay={1}>
         <div className="flex flex-col gap-y-6">
           {" "}
-          {blogs.map((blog) => {
+          {blogsData.map((blog) => {
             return (
-              <div key={blog._id}>
-                <BlogItem
-                  title={blog?.title}
-                  description={blog?.metaDesc}
-                  slug={blog.slug.current}
-                  publishDate={blog?.publishDate || ""}
-                />
-              </div>
+              blog.isFeaturedBlog && (
+                <div key={blog._id}>
+                  <BlogItem
+                    title={blog?.title}
+                    description={blog?.metaDesc}
+                    slug={blog.slug.current}
+                    publishDate={blog?.publishDate || ""}
+                  />
+                </div>
+              )
             );
           })}
         </div>

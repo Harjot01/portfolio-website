@@ -5,12 +5,12 @@ export async function getSingleProject(
   slug: string,
 ): Promise<ProjectsInterface | null> {
   const query = `*[_type == "projects" && slug.current == $slug][0]`;
-  const project = await sanityClient.fetch(query, { slug });
+  const projectData = await sanityClient.fetch(query, { slug });
 
-  return project || null;
+  return projectData || null;
 }
 export async function getProjects() {
   const query = `*[_type == "projects"]`;
-  const projects = await sanityClient.fetch(query);
-  return projects;
+  const projectsData = await sanityClient.fetch(query);
+  return projectsData;
 }

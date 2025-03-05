@@ -8,7 +8,7 @@ import Reveal from "../components/Reveal";
 export const revalidate = 30;
 
 const ProjectsPage = async () => {
-  const projects: ProjectsInterface[] = await getProjects();
+  const projectsData: ProjectsInterface[] = await getProjects();
   return (
     <div className="flex flex-col mt-12 gap-y-4 h-screen">
       <Reveal delay={0.1}>
@@ -18,7 +18,7 @@ const ProjectsPage = async () => {
         {" "}
         <div className="flex flex-col gap-y-6">
           {" "}
-          {projects.map((project) => {
+          {projectsData.map((project) => {
             return (
               <div key={project._id}>
                 <ProjectItem

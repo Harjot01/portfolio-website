@@ -2,8 +2,10 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import Link from "next/link";
 import Reveal from "./Reveal";
+import { getContact } from "@/lib/fetchContact";
 
-const Contact = () => {
+const Contact = async () => {
+  const contactData = await getContact();
   return (
     <div className="flex flex-col gap-y-4">
       <Reveal delay={1.1}>
@@ -12,7 +14,7 @@ const Contact = () => {
       <div className="mx-auto">
         <Reveal delay={1.2}>
           <Link
-            href="https://github.com/Harjot01/"
+            href={contactData?.githubProfile || "#"}
             target="_blank"
             className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
           >
@@ -20,7 +22,7 @@ const Contact = () => {
           </Link>
           <span className="text-primary"> · </span>
           <Link
-            href="https://www.linkedin.com/in/harjot01/"
+            href={contactData?.linkedinProfile || "#"}
             target="_blank"
             className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
           >
@@ -28,7 +30,7 @@ const Contact = () => {
           </Link>
           <span className="text-primary"> · </span>
           <Link
-            href="https://www.instagram.com/harjot_s_r/"
+            href={contactData?.instagramProfile || "#"}
             target="_blank"
             className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
           >
@@ -36,7 +38,7 @@ const Contact = () => {
           </Link>
           <span className="text-primary"> · </span>
           <Link
-            href="mailto:harjotsingh.5125@gmail.com"
+            href={contactData?.gmailLink || "#"}
             target="_blank"
             className="text-primary hover:bg-primary hover:text-textLight  cursor-pointer"
           >

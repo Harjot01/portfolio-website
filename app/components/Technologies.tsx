@@ -23,7 +23,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ techData }) => {
     });
 
     return () => clearTimeout(timeout);
-  });
+  }, []);
   return (
     <section
       id="tech"
