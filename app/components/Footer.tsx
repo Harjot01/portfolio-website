@@ -2,22 +2,19 @@
 import React, { useState, useEffect } from "react";
 
 const Footer = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
     const storedTheme = localStorage.getItem("theme") as "light" | "dark";
     if (storedTheme) {
-      setTheme(storedTheme);
       document.documentElement.classList.toggle("dark", storedTheme === "dark");
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     }
-  }, [theme]);
+  }, []);
 
   const toggleTheme = (selectedTheme: "light" | "dark") => {
-    setTheme(selectedTheme);
     document.documentElement.classList.toggle("dark", selectedTheme === "dark");
     localStorage.setItem("theme", selectedTheme);
   };
