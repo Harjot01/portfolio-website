@@ -2,7 +2,11 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { getAbout } from "@/lib/fetchAbout";
+import { urlFor } from "@/lib/sanity";
+import { AboutInterface } from "@/lib/interface";
 const About = async () => {
+  const aboutData: AboutInterface = await getAbout();
   return (
     <div className="flex flex-col mt-12 gap-y-4">
       <Reveal delay={0.1}>
@@ -11,16 +15,18 @@ const About = async () => {
       <div className="flex flex-col gap-y-6 sm:flex-row gap-x-6">
         <Reveal delay={0.1}>
           {" "}
-          <Image
-            src="/author.jpg"
-            alt="authorImg"
-            width={100}
-            height={100}
-            className="w-40 h-40 rounded-lg hidden sm:flex"
-          />
+          {aboutData?.authorImg && (
+            <Image
+              src={urlFor(aboutData?.authorImg)?.url()}
+              alt="authorImg"
+              width={100}
+              height={100}
+              className="w-40 h-40 rounded-lg hidden sm:flex"
+            />
+          )}
         </Reveal>
 
-        <div className="flex flex-col text-textDark dark:text-textLight justify-between">
+        <div className="flex flex-col gap-y-6 text-textDark dark:text-textLight justify-between">
           <Reveal delay={0.2}>
             <h1 className="">
               Hi, I am <span className="font-bold">Harjot Singh,</span>

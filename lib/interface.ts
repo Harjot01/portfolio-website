@@ -6,6 +6,7 @@ export interface AboutInterface {
       _ref: string;
     };
   };
+  authorImg?: string;
 }
 export interface ProjectsInterface {
   _id: string;
