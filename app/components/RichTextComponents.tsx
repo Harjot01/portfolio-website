@@ -74,7 +74,7 @@ export const RichTextComponents: PortableTextComponents = {
       </p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-8 italic text-gray-600 dark:text-gray-400 text-base">
+      <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-8 italic text-gray-600 dark:text-gray-400 text-sm md:text-base">
         {children}
       </blockquote>
     ),
