@@ -64,7 +64,7 @@ const Page = async ({ params }: any) => {
   });
 
   return (
-    <main className={`${inter.className} max-w-4xl mx-auto px-2 mt-12 py-12`}>
+    <main className={`${inter.className} max-w-4xl mx-auto mt-12 py-12`}>
       {/* Article Header */}
       <header className="flex flex-col gap-y-4 mb-8">
         <Reveal delay={0.1}>

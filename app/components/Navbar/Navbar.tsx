@@ -8,7 +8,7 @@ const Navbar = async () => {
   const aboutData: AboutInterface = await getAbout();
   const [_file, id, extension] = aboutData?.resume.asset._ref.split("-");
   return (
-    <nav className="flex md:flex-row gap-y-4 flex-col justify-between py-6 ">
+    <nav className="flex text-sm md:text-base md:flex-row gap-y-4 flex-col justify-between py-6 ">
       <div className="flex gap-x-1 items-center ">
         <h1 className="font-bold">
           <Link
