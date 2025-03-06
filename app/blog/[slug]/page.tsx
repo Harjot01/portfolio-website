@@ -6,6 +6,12 @@ import { RichTextComponents } from "@/app/components/RichTextComponents";
 import { urlFor } from "@/lib/sanity";
 import { getSingleBlog } from "@/lib/fetchBlogs";
 import Reveal from "@/app/components/Reveal";
+import { Inter } from "next/font/google"; // Import Inter and Lora
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter", // Optional: Define a CSS variable
+});
 
 export const revalidate = 30;
 
@@ -58,7 +64,7 @@ const Page = async ({ params }: any) => {
   });
 
   return (
-    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 py-12">
+    <main className={`${inter.className} max-w-4xl mx-auto px-2 mt-12 py-12`}>
       {/* Article Header */}
       <header className="flex flex-col gap-y-4 mb-8">
         <Reveal delay={0.1}>
