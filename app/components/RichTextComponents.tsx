@@ -69,7 +69,7 @@ export const RichTextComponents: PortableTextComponents = {
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="text-base my-4 leading-relaxed text-gray-700 dark:text-gray-300">
+      <p className="text-sm md:text-base my-4 leading-relaxed text-gray-700 dark:text-gray-300">
         {children}
       </p>
     ),
