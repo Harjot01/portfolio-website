@@ -12,7 +12,7 @@ const About = async () => {
       <Reveal delay={0.1}>
         <SectionHeading title="Whoami" />
       </Reveal>
-      <div className="flex flex-col gap-y-6 sm:flex-row gap-x-6">
+      <div className="flex flex-col sm:flex-row gap-x-6">
         <Reveal delay={0.1}>
           {" "}
           {aboutData?.authorImg && (

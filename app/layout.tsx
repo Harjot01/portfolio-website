@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar/Navbar";
 import { Fira_Code } from "next/font/google";
 import Footer from "./components/Footer";
+import NavbarWrapper from "./components/Navbar/NavbarWrapper";
 
 const firaCode = Fira_Code({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${firaCode.className} bg-white dark:bg-background antialiased w-full max-w-[70.5rem] mx-auto px-4 text-sm md:text-base `}
       >
-        <Navbar />
+        <NavbarWrapper />
         {children}
         <Footer />
       </body>
