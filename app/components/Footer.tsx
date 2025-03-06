@@ -10,6 +10,9 @@ const Footer = () => {
     if (storedTheme) {
       setTheme(storedTheme);
       document.documentElement.classList.toggle("dark", storedTheme === "dark");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     }
   }, [theme]);
 
