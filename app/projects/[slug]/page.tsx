@@ -20,7 +20,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const projectData = await getSingleProject(params.slug);
 
   return {
-    title: projectData?.title || "Project Post",
+    title: projectData?.title
+      ? `${projectData?.title} | Harjot Singh`
+      : "Project Post | Harjot Singh",
+
     description: projectData?.metaDesc || "A projec post on my website",
     openGraph: {
       title: projectData?.title || "Project Post",

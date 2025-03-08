@@ -19,7 +19,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const blogData = await getSingleBlog(params.slug);
 
   return {
-    title: blogData?.title || "Blog Post",
+    title: blogData?.title
+      ? `${blogData.title} | Harjot Singh`
+      : "Blog Post | Harjot Singh",
+
     description: blogData?.metaDesc || "A blog post on my website",
     openGraph: {
       title: blogData?.title || "Blog Post",
